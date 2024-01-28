@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_my_node_app_1706457123837-push-trigger-input-set
+  identifier: Build_my_node_app_1706457123837pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: basavarajmalagitest
+  pipeline:
+    identifier: Build_my_node_app_1706457123837
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
