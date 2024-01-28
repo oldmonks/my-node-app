@@ -1,0 +1,40 @@
+pipeline:
+  identifier: Build_my_node_app_1706457123837
+  name: Build my-node-app
+  orgIdentifier: default
+  projectIdentifier: basavarajmalagitest
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: basavarajmalagisamplerepo
+        repoName: my-node-app
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: npminstall
+                  name: npm_install
+                  spec:
+                    command: npm install
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: npmtest
+                  name: npm_test
+                  spec:
+                    command: npm run test
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
